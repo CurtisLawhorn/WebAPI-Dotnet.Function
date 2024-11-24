@@ -31,7 +31,7 @@ module "lambda_function" {
   source = "terraform-aws-modules/lambda/aws"
 
   function_name = "webApiDotnet"
-  description   = "AWS Lambda API function for training purposes using the 'serverless.AspNetCoreWebAPI' template."
+  description   = "API function for training purposes using the 'serverless.AspNetCoreWebAPI' template."
   handler       = "webApiDotnet.Function::webApiDotnet.Function.LambdaEntryPoint::FunctionHandlerAsync"
   runtime       = "dotnet8"
   create_role   = false
