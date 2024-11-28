@@ -36,6 +36,55 @@ Application Load Balancer.
 
 You may also have a test project depending on the options selected.
 
+## Here are some steps to follow from to get started with the Terraform:
+
+The role (production.lambda-execute.role) and policies (below) for Lambda execution and trace logging need to be setup ahead of time.
+
+Lambda execution (AWSLambdaBasicExecutionRole)
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+Trace logging (AWSLambdaTracerAccessExecutionPolicy)
+```
+{
+    "Version": "2012-10-17",
+    "Statement": {
+        "Effect": "Allow",
+        "Action": [
+            "xray:PutTraceSegments",
+            "xray:PutTelemetryRecords"
+        ],
+        "Resource": [
+            "*"
+        ]
+    }
+}
+```  
+
+To deploy your function to AWS Lambda, run the below commands from the /hosting/src folder. 
+
+```
+    terraform init
+    terraform validate
+    terraform plan
+    terraform apply
+    terraform destroy
+```
+
 ## Here are some steps to follow from Visual Studio:
 
 To deploy your Serverless application, right click the project in Solution Explorer and select *Publish to AWS Lambda*.
@@ -58,12 +107,12 @@ If already installed check if new version is available.
 
 Execute unit tests
 ```
-    cd "webApiDotnet.Function/test/webApiDotnet.Function.Tests"
+    cd "webApiDotnet.Function/test"
     dotnet test
 ```
 
 Deploy application
 ```
-    cd "webApiDotnet.Function/src/webApiDotnet.Function"
+    cd "webApiDotnet.Function/src"
     dotnet lambda deploy-serverless
 ```
