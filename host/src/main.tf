@@ -30,7 +30,7 @@ data "aws_iam_role" "existing_lambda_role" {
 module "lambda_function" {
   source = "terraform-aws-modules/lambda/aws"
 
-  function_name = "webApiDotnet"
+  function_name = "WebAPI-Dotnet"
   description   = "API function for training purposes using the 'serverless.AspNetCoreWebAPI' template."
   handler       = "webApiDotnet.Function::webApiDotnet.Function.LambdaEntryPoint::FunctionHandlerAsync"
   runtime       = "dotnet8"
@@ -46,9 +46,9 @@ module "lambda_function" {
   }
 
   tags = {
-    Name        = "webApiDotnet.Function"
+    Name        = "WebAPI-Dotnet.Function"
     Environment = "Sandbox"
-    Repository  = "https://github.com/CurtisLawhorn/webApiDotnet.Function"
+    Repository  = "https://github.com/CurtisLawhorn/WebAPI-Dotnet.Function.git"
   }
 
   source_path = [{
