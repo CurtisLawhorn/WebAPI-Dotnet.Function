@@ -1,4 +1,4 @@
-﻿namespace webApiDotnet.Function;
+﻿namespace WebAPI_Dotnet.Function;
 
 public class Startup
 {

@@ -1,4 +1,4 @@
-namespace webApiDotnet.Function;
+namespace WebAPI_Dotnet.Function;
 
 /// <summary>
 /// This class extends from APIGatewayProxyFunction which contains the method FunctionHandlerAsync which is the 

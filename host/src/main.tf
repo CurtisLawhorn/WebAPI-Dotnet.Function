@@ -32,7 +32,7 @@ module "lambda_function" {
 
   function_name = "WebAPI-Dotnet"
   description   = "API function for training purposes using the 'serverless.AspNetCoreWebAPI' template."
-  handler       = "webApiDotnet.Function::webApiDotnet.Function.LambdaEntryPoint::FunctionHandlerAsync"
+  handler       = "WebAPI-Dotnet.Function::WebAPI_Dotnet.Function.LambdaEntryPoint::FunctionHandlerAsync"
   runtime       = "dotnet8"
   create_role   = false
   #lambda_role  = aws_iam_role.lambda_role.arn
